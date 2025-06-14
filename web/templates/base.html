@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}Re-Defined Blog{% endblock %}</title>
+		<meta
+			name="description"
+			content="{% block description %}AI-powered blog for international students and young professionals{% endblock %}"
+		/>
+
+		<!-- Tailwind CSS -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							'brand-primary': '#2563eb',
+							'brand-secondary': '#1e40af',
+							'brand-accent': '#3b82f6',
+						},
+					},
+				},
+			};
+		</script>
+
+		<!-- Font Awesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="/static/custom.css" />
+
+		{% block extra_head %}{% endblock %}
+	</head>
+	<body class="bg-gray-50 min-h-screen">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-lg">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16">
+					<div class="flex items-center">
+						<a href="/" class="flex items-center space-x-2">
+							<div
+								class="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center"
+							>
+								<i class="fas fa-blog text-white text-sm"></i>
+							</div>
+							<span class="text-xl font-bold text-gray-900">Re-Defined</span>
+						</a>
+					</div>
+
+					<div class="flex items-center space-x-8">
+						<a
+							href="/"
+							class="text-gray-700 hover:text-brand-primary transition-colors"
+							>Home</a
+						>
+						<a
+							href="/blogs"
+							class="text-gray-700 hover:text-brand-primary transition-colors"
+							>Blogs</a
+						>
+						<a
+							href="/api/docs"
+							class="text-gray-700 hover:text-brand-primary transition-colors"
+							>API</a
+						>
+						<a
+							href="http://localhost:8501"
+							target="_blank"
+							class="bg-brand-primary text-white px-4 py-2 rounded-lg hover:bg-brand-secondary transition-colors"
+						>
+							<i class="fas fa-cogs mr-2"></i>Dashboard
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<main class="flex-1">{% block content %}{% endblock %}</main>
+
+		<!-- Footer -->
+		<footer class="bg-gray-900 text-white mt-16">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+					<div class="col-span-1 md:col-span-2">
+						<div class="flex items-center space-x-2 mb-4">
+							<div
+								class="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center"
+							>
+								<i class="fas fa-blog text-white text-sm"></i>
+							</div>
+							<span class="text-xl font-bold">Re-Defined</span>
+						</div>
+						<p class="text-gray-400 mb-4">
+							Empowering international students and young professionals with
+							AI-powered career insights and educational content.
+						</p>
+						<div class="flex space-x-4">
+							<a
+								href="#"
+								class="text-gray-400 hover:text-white transition-colors"
+							>
+								<i class="fab fa-twitter"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-white transition-colors"
+							>
+								<i class="fab fa-linkedin"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-white transition-colors"
+							>
+								<i class="fab fa-instagram"></i>
+							</a>
+						</div>
+					</div>
+
+					<div>
+						<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+						<ul class="space-y-2">
+							<li>
+								<a
+									href="/"
+									class="text-gray-400 hover:text-white transition-colors"
+									>Home</a
+								>
+							</li>
+							<li>
+								<a
+									href="/blogs"
+									class="text-gray-400 hover:text-white transition-colors"
+									>All Blogs</a
+								>
+							</li>
+							<li>
+								<a
+									href="/api/docs"
+									class="text-gray-400 hover:text-white transition-colors"
+									>API Docs</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 class="text-lg font-semibold mb-4">System</h3>
+						<ul class="space-y-2">
+							<li>
+								<a
+									href="http://localhost:8501"
+									target="_blank"
+									class="text-gray-400 hover:text-white transition-colors"
+									>Dashboard</a
+								>
+							</li>
+							<li>
+								<a
+									href="/api/health"
+									class="text-gray-400 hover:text-white transition-colors"
+									>Health Check</a
+								>
+							</li>
+							<li>
+								<a
+									href="/api/scrape-trends"
+									class="text-gray-400 hover:text-white transition-colors"
+									>Scrape Trends</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="border-t border-gray-800 mt-8 pt-6 text-center">
+					<p class="text-gray-400">
+						© 2024 Re-Defined Blog Automation. Powered by AI.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Simple smooth scrolling
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					document.querySelector(this.getAttribute('href')).scrollIntoView({
+						behavior: 'smooth',
+					});
+				});
+			});
+		</script>
+
+		{% block extra_js %}{% endblock %}
+	</body>
+</html>
