@@ -1,0 +1,2 @@
+# BlogPost
+Auto Generates blogs
