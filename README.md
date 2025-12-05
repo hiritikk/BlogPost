@@ -1,4 +1,4 @@
-# Re-Defined Newsletter Automation System
+# Newsletter Automation System
 
 An AI-powered blog automation system that generates, schedules, and publishes educational content for international students and young professionals.
 
